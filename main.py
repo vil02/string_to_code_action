@@ -17,7 +17,7 @@ def main():
     code = string_to_code.proc(target_language, os.environ["INPUT_INPUTSTR"])
 
     _set_output("targetLanguage", target_language)
-    _set_output("code", "some_tmp_code")
+    _set_output("code", code)
 
 
 if __name__ == "__main__":
