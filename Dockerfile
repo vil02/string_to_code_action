@@ -2,5 +2,6 @@ FROM python:3-slim
 
 RUN pip install string-to-code
 
-COPY main.py /main.py
-ENTRYPOINT ["/main.py"]
+FROM gcr.io/distroless/python3-debian10
+ENV PYTHONPATH .
+CMD ["./main.py"]
