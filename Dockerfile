@@ -1,4 +1,4 @@
-FROM cicirello/pyaction-lite:3
+FROM python:3-slim
 
 RUN pip install string-to-code
 
