@@ -1,0 +1,26 @@
+---
+name: action_test
+
+# yamllint disable-line rule:truthy
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run action
+        id: run_action
+
+        uses: vil02/string_to_code_action@master
+
+      - name: Show output
+        run: |
+          echo "${{ steps.run_action.outputs.targetLanguage }}"
+          echo "${{ steps.run_action.outputs.code }}"
+...

@@ -1,0 +1,16 @@
+name: "string_to_code action"
+description: "Github action calling string_to_code"
+author: "Piotr Idzik"
+inputs:
+  targetLanguage:
+    description: "Language of the generater code"
+  inputStr:
+    description: "The string which should be displayed by the generated program"
+outputs:
+  targetLanguage:
+    description: "Language of the generater code"
+  code:
+    description: "The generated code"
+runs:
+  using: "docker"
+  image: "Dockerfile"
