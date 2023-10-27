@@ -17,7 +17,7 @@ jobs:
       - name: Run action
         id: run_action
 
-        uses: vil02/string_to_code_action@master
+        uses: vil02/string_to_code_action@main
 
       - name: Show output
         run: |
