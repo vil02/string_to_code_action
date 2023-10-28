@@ -10,7 +10,7 @@ def _prepare_str(in_str):
 
 
 def _prepare_output_str(output_name, output_value):
-    res = "\n".join([f"echo \'{output_name}<<EOF\'", output_value+"\n", "echo EOF+\n", "\n"])
+    res = "\n".join([f"echo \'{output_name}<<EOF\'", output_value+"\n", "echo EOF\n", "\n"])
     print(res)
     return res
 
