@@ -20,6 +20,10 @@ jobs:
         with:
           targetLanguage: python3
           inputStr: "Hello, World!"
+        
+      - name: Shor output file
+        run:
+          cat $GITHUB_OUTPUT
 
       - name: Show output
         run: |
