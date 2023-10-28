@@ -9,11 +9,15 @@ def _prepare_str(in_str):
     return res.replace("\r", "%0D")
 
 
+def _prepare_output_str(output_name, output_value):
+    return "\n".join([f"echo \'{output_name}\'<<EOF", output_value, "echo EOF\n")
+
+
 def _set_output(output_name, output_value):
     with open(
         os.path.abspath(os.environ["GITHUB_OUTPUT"]), mode="a", encoding="utf-8"
     ) as _:
-        _.write(f"{output_name}={_prepare_str(output_value)}\n")
+        _.write(_prepare_output_str(output_name, output_value))
 
 
 def main():
