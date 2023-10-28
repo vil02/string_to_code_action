@@ -23,6 +23,5 @@ jobs:
 
       - name: Show output
         run: |
-          echo "${{ steps.run_action.outputs.targetLanguage }}"
           echo "${{ steps.run_action.outputs.code }}"
 ...
