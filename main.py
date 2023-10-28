@@ -3,16 +3,8 @@ import os
 from string_to_code import string_to_code
 
 
-def _prepare_str(in_str):
-    res = in_str.replace("%", "%25")
-    res = res.replace("\n", "%0A")
-    return res.replace("\r", "%0D")
-
-
 def _prepare_output_str(output_name, output_value):
-    res = "\n".join([f"{output_name}<<EOF", output_value+"\n", "EOF\n", "\n"])
-    print(res)
-    return res
+    return "\n".join([f"{output_name}<<EOF", output_value, "EOF\n"])
 
 
 def _set_output(output_name, output_value):
