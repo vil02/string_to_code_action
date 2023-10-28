@@ -20,6 +20,7 @@ jobs:
         with:
           targetLanguage: python3
           inputStr: "Hello, World!"
+          outputFile: "out.txt"
 
       - name: Check targetLanguage
         run: |
@@ -27,7 +28,5 @@ jobs:
 
       - name: Check output code 
         run: |
-          printf '%s' "${{ steps.run_action.outputs.code }}" > some_file.py
-          cat some_file.py
-          python3 some_file.py
+          test "$(python3 out.txt)" == "Hello, World!"
 ...

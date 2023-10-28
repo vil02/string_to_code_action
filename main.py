@@ -13,6 +13,10 @@ def _set_output(output_name, output_value):
     ) as _:
         _.write(_prepare_output_str(output_name, output_value))
 
+def _save_code(file_name, code):
+    with open(file_name, mode="a", encoding="utf-8") as _:
+        _.write(code)
+
 
 def main():
     target_language = os.environ["INPUT_TARGETLANGUAGE"]
@@ -22,6 +26,7 @@ def main():
 
     _set_output("targetLanguage", target_language)
     _set_output("code", code)
+    _save_code(os.environ["INPUT_OUTPUTFILE"], code)
 
 
 if __name__ == "__main__":

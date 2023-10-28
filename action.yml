@@ -6,6 +6,8 @@ inputs:
     description: "Language of the generater code"
   inputStr:
     description: "The string which should be displayed by the generated program"
+  outputFile:
+    description: "The file with generated code"
 outputs:
   targetLanguage:
     description: "Language of the generater code"
