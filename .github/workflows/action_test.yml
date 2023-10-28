@@ -24,4 +24,10 @@ jobs:
       - name: Check targetLanguage
         run: |
           test "${{ steps.run_action.outputs.targetLanguage }}" == "python3"
+
+      - name: Check output code 
+        run: |
+          printf '%s' "${{ steps.run_action.outputs.code }}" > some_file.py
+          cat some_file.py
+          python3 some_file.py
 ...
