@@ -13,7 +13,7 @@ def _set_output(output_name, output_value):
     with open(
         os.path.abspath(os.environ["GITHUB_OUTPUT"]), mode="a", encoding="utf-8"
     ) as _:
-        _.write(f"{output_name}={_prepare_str(output_value)}")
+        _.write(f"{output_name}={_prepare_str(output_value)}\n")
 
 
 def main():
