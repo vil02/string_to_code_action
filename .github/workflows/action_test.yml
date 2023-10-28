@@ -20,13 +20,16 @@ jobs:
         with:
           targetLanguage: python3
           inputStr: "Hello, World!"
-        
-      - name: Shor output file
-        run:
-          cat $GITHUB_OUTPUT
 
-      - name: Show output
+      - name: Check targetLanguage
         run: |
-          echo "${{ steps.run_action.outputs.targetLanguage }}"
-          echo "${{ steps.run_action.outputs.code }}"
+          test "${{ steps.run_action.outputs.targetLanguage }}" == "python3"
+      
+      - name: Check output code
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10' 
+        run: |
+          echo "${{ steps.run_action.outputs.code }}" >> some_file.py
+          test "$(python3 some_file.py)" == "Hello, World!"
 ...
