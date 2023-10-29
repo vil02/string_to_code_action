@@ -1,5 +1,5 @@
 ---
-name: action_test
+name: action_test_python
 
 # yamllint disable-line rule:truthy
 on:
@@ -10,7 +10,7 @@ on:
   pull_request:
 
 env:
-  INPUT_STR: "Hello, World!"
+  INPUT_STR: "Hello, World! (with python3)"
   TARGET_LANGUAGE: python3
   OUTPUT_FILE: "out.py"
 

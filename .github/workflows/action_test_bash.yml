@@ -1,0 +1,38 @@
+---
+name: action_test_bash
+
+# yamllint disable-line rule:truthy
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+
+env:
+  INPUT_STR: "Hello, World! (with bash)"
+  TARGET_LANGUAGE: bash
+  OUTPUT_FILE: "out.sh"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run action
+        id: run_action
+        uses: ./
+        with:
+          targetLanguage: ${{ env.TARGET_LANGUAGE }}
+          inputStr: ${{ env.INPUT_STR }}
+          outputFile: ${{ env.OUTPUT_FILE }}
+
+      - name: Check targetLanguage
+        run: |
+          test "${{ steps.run_action.outputs.targetLanguage }}" == "${{ env.TARGET_LANGUAGE }}"
+
+      - name: Check output code
+        run: |
+          sudo chmod +x "${{ env.OUTPUT_FILE }}"
+          test "$(./"${{ env.OUTPUT_FILE }}")" == "${{ env.INPUT_STR }}"
+...
