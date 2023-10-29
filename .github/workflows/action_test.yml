@@ -9,6 +9,11 @@ on:
       - main
   pull_request:
 
+env:
+  INPUT_STR: "Hello, World!"
+  TARGET_LANGUAGE: python3
+  OUTPUT_FILE: "out.py"
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,15 +23,15 @@ jobs:
         id: run_action
         uses: ./
         with:
-          targetLanguage: python3
-          inputStr: "Hello, World!"
-          outputFile: "out.txt"
+          targetLanguage: ${{ env.TARGET_LANGUAGE }}
+          inputStr: ${{ env.INPUT_STR }}
+          outputFile: ${{ env.OUTPUT_FILE }}
 
       - name: Check targetLanguage
         run: |
-          test "${{ steps.run_action.outputs.targetLanguage }}" == "python3"
+          test "${{ steps.run_action.outputs.targetLanguage }}" == "${{ env.TARGET_LANGUAGE }}"
 
       - name: Check output code 
         run: |
-          test "$(python3 out.txt)" == "Hello, World!"
+          test "$(python3 ${{ env.OUTPUT_FILE }})" == "${{ env.INPUT_STR }}"
 ...
