@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Run action
         id: run_action
-        uses: vil02/string_to_code_action@main
+        uses: ./
         with:
           targetLanguage: python3
           inputStr: "Hello, World!"
