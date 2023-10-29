@@ -4,10 +4,14 @@ author: "Piotr Idzik"
 inputs:
   targetLanguage:
     description: "Language of the generater code"
+    required: true
   inputStr:
     description: "The string which should be displayed by the generated program"
+    required: true
   outputFile:
     description: "The file with generated code"
+    required: false
+    default: "out.txt"
 outputs:
   targetLanguage:
     description: "Language of the generater code"
