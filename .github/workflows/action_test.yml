@@ -31,7 +31,7 @@ jobs:
         run: |
           test "${{ steps.run_action.outputs.targetLanguage }}" == "${{ env.TARGET_LANGUAGE }}"
 
-      - name: Check output code 
+      - name: Check output code
         run: |
           test "$(python3 ${{ env.OUTPUT_FILE }})" == "${{ env.INPUT_STR }}"
 ...
