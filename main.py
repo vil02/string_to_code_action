@@ -1,4 +1,5 @@
 import os
+import random
 
 from string_to_code import string_to_code
 
@@ -13,15 +14,23 @@ def _set_output(output_name, output_value):
     ) as _:
         _.write(_prepare_output_str(output_name, output_value))
 
+
 def _save_code(file_name, code):
     with open(file_name, mode="a", encoding="utf-8") as _:
         _.write(code)
 
 
-def main():
-    target_language = os.environ["INPUT_TARGETLANGUAGE"]
+def _get_target_language(input_target_language):
+    res = input_target_language
+    if not input_target_language:
+        res = random.choice(list(string_to_code.get_target_languages()))
+    assert res in string_to_code.get_target_languages()
+    return res
 
-    assert target_language in string_to_code.get_target_languages()
+
+def _main():
+    target_language = _get_target_language(os.environ["INPUT_TARGETLANGUAGE"])
+
     code = string_to_code.proc(target_language, os.environ["INPUT_INPUTSTR"])
 
     _set_output("targetLanguage", target_language)
@@ -30,4 +39,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    _main()
