@@ -13,7 +13,6 @@ on:
 
 env:
   INPUT_STR: "Hello, World! (with random target language)"
-  TARGET_LANGUAGE: ""
   OUTPUT_FILE: "some_file.txt"
 
 jobs:
@@ -25,7 +24,6 @@ jobs:
         id: run_action
         uses: ./
         with:
-          targetLanguage: ${{ env.TARGET_LANGUAGE }}
           inputStr: ${{ env.INPUT_STR }}
           outputFile: ${{ env.OUTPUT_FILE }}
 
