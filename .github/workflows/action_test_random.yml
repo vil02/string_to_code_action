@@ -1,0 +1,39 @@
+---
+name: action_test_random
+
+# yamllint disable-line rule:truthy
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+  schedule:
+    - cron: '31 6 * * *'
+
+env:
+  INPUT_STR: "Hello, World! (with random target language)"
+  TARGET_LANGUAGE: ""
+  OUTPUT_FILE: "some_file.txt"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run action
+        id: run_action
+        uses: ./
+        with:
+          targetLanguage: ${{ env.TARGET_LANGUAGE }}
+          inputStr: ${{ env.INPUT_STR }}
+          outputFile: ${{ env.OUTPUT_FILE }}
+
+      - name: Show targetLanguage
+        run: |
+          echo "${{ steps.run_action.outputs.targetLanguage }}"
+
+      - name: Show output code
+        run: |
+          cat "${{ env.OUTPUT_FILE }}"
+...

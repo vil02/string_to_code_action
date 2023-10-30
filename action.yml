@@ -5,7 +5,8 @@ author: "Piotr Idzik"
 inputs:
   targetLanguage:
     description: "Language of the generater code"
-    required: true
+    required: false
+    default: ""
   inputStr:
     description: "The string which should be displayed by the generated program"
     required: true
