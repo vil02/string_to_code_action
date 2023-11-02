@@ -16,7 +16,7 @@ def _set_output(output_name, output_value):
 
 
 def _save_code(file_name, code):
-    with open(file_name, mode="a", encoding="utf-8") as _:
+    with open(file_name, mode="x", encoding="utf-8") as _:
         _.write(code)
 
 
