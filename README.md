@@ -11,12 +11,12 @@ to generate messy code that displays a given string.
 ## Inputs
 
 - `targetLanguage` (optional): Language of the generated code.
-   If set to `""` the resulting code will be in a randomly selected language.
-   Default: `""`.
+     If set to `""` the resulting code will be in a randomly selected language.
+     Default: `""`.
 - `inputStr` (required): The string which should be displayed
-   by the generated program.
+     by the generated program.
 - `outputFile` (optional): The file to store the generated code.
-  Default: `"out.txt"`.
+    Default: `"out.txt"`.
 
 ## Outputs
 
