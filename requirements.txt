@@ -1,1 +1,1 @@
-string_to_code ==0.2.15
+string_to_code ==0.3.0
