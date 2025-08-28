@@ -10,6 +10,9 @@ name: action_test_bash
   schedule:
     - cron: '36 6 * * *'
 
+permissions:
+  contents: read
+
 env:
   INPUT_STR: "Hello, World! (with bash)"
   TARGET_LANGUAGE: bash
@@ -19,7 +22,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
       - name: Run action
         id: run_action
         uses: ./
