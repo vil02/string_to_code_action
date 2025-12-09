@@ -1,4 +1,4 @@
-FROM python:3.14.2-slim
+FROM python:3.15.0a2-slim
 
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
